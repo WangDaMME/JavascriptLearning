@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    
+        //1. 6 种 基本数据类型 
+        var str = " he said: \"this is great\""; // 转义
+        if(typeof str ==="string" ) return true;
+
+        console.log(Number.MAX_VALUE)
+
+        a = "abc" * "cba"
+        console.log(a) ; // 没有实际意义 返回 NAN : Not a NUMBER
+
+        a = Number.MIN_VALUE; // 5E -324： 不是负数 是0 以上最小的数
+        console.log(a) ; 
+
+        var c = 0.1 + 0.2 // 0.3 0000000000000000000004 // 浮点数间运算  不准s
+
+
+        // Null & Undefined
+        var a = null; // Null 类型只有一个值 ie. null
+        console.log(typeof a) ; // 返回 object ；类型
+
+        var b;
+        console.log(typeof b) ; // 声明1个变量 但为赋值时 就是 undefined
+
+        
+        //2. String Number强转
+        // 1. a= String(a) 强转
+        var a = 123;
+        a = String(a);
+
+        console.log(typeof a)
+
+        // 2. a= Number(a) 强转
+        let b = "123";
+        b = Number(b);
+        console.log(typeof b)
+
+        /*
+        “abc” 转不了 →转成 NaN
+        空串/ null “” 转换为0
+        boolean  true转为1 ， false 转为0 
+        undefined 转为 NaN
+        */
+
+
+        // eg. 从css 读取 到 123px
+        let css = "123px";
+        css = Number(css);
+        console.log(css) // NaN
+
+        // 解决办法 parseInt
+
+        css ="123px"
+        css=parseFloat(css)
+        console.log(css) // 123
+
+                
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
