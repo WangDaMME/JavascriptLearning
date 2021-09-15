@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+
+        // 函数Function 本身是一个对象 
+        //    封装一些功能 方便复用
+        var func = new Function();
+
+        console.log(func);  // function anonymoys {}
+        func();
+        console.log(typeof func); // "function"
+
+        var func = new Function();
+        func.hello = "nihao";
+        console.log(func.hello);   // nihao
+
+        func.name = "nihao";
+        console.log(func.hello);   // anonymous  不能用被占用的字段
+        
+        // 函数声明方式来创建 函数
+
+        // 1.function xxx( [param1, param2] ) {...}
+        function func1( a)
+        {
+            console.log(a)
+        }
+        func1(5)
+
+
+        //2. var xxx = funtion(param1, param2] ) {...}
+        var func2 = function(b)
+        {
+            console.log(b)
+        }
+        func2(-5);
+
+
+
+
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
