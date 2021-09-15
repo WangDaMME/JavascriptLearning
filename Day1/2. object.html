@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        var obj = new Object();
+        console.log(typeof obj)
+
+        obj.name = "michael jordan";
+        console.log(obj) 
+        console.log(obj.name)// 读取 属性
+        
+        
+        //删除属性
+        delete obj.name 
+        console.log(obj)
+
+        var obj = new Object();
+        console.log(typeof obj)
+
+        obj["age"] =18;
+        console.log(obj.age)
+
+        var obj = new Object();
+        console.log(typeof obj)
+
+        obj["123"] =18;
+        console.log(obj["123"])
+
+        
+        //使用 [] 可以传递一个 {变量 的 方式} 更为灵活
+        var obj = new Object();
+
+        var n =  "123";
+        obj["123"] = 789;
+
+        console.log(obj[n]) //789
+
+        //对象里嵌套对象
+        var obj = new Object();
+        var obj2 = new Object();
+
+        obj2.name = "nihao";
+        obj.children = obj2;
+
+        console.log(obj.children.name)
+
+        // in 运算符 ： 检查 属性是否在 object 对象中
+        console.log("name" in obj2)
+        console.log("age" in obj2)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
