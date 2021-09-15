@@ -91,6 +91,45 @@
 //         number → string: 123+””
 //         string → number:  “123” - 0
 
+
+        a = "123";
+        console.log(+a)
+        console.log(typeof (+a)) // number格式
+
+        
+        // 自增操作
+        a =1 ;
+        console.log(a++) //1 先做操作 后++
+        a=1
+        console.log(++a) //2 先++ 后做操作
+
+        var d = 20;
+        var res = d++ + ++d + d; // 20 + 22 + 22  = 64
+        console.log(d)
+
+
+        var d = 20;
+        d= d++; //等价于 e = d++ , d = e . 所以先把 20 返回给e
+        console.log(d) //20
+        
+
+        // 逻辑短路
+        true || alert("123");
+
+
+        a = 1 && 2 && 3 // 先转换为 bool 运算， 然后返回 原值
+        console.log(a) // &&： 都为true 返回后面的 一个
+
+        // 逻辑短路
+        a = 0 && NaN
+        console.log(a) // 短路：0
+
+        // 逻辑短路
+        a = NaN && 0
+        console.log(a) // 短路：NaN
+
+
+
     </script>
 </head>
 <body>
