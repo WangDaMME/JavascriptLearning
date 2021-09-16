@@ -53,6 +53,32 @@
         }
 
         mc1.sayName()
+
+
+        // Prototype Chain
+        // 原型的原型
+        function MyClass(){}
+
+        // 向MyClass 的原型中 添加一个 name 属性
+        MyClass.prototype.name = "name in prototype"
+
+        var mc = new MyClass();
+
+        console.log("name" in mc) // 检查 属性 在不在object里 , 对象中没有， 但是原型中有 也会返回true
+
+
+        //对象中有 hasOwnProperty 看 是否 是在自己 而不是 在原型中 有 这个属性
+        console.log(mc.hasOwnProperty("name")) // false
+        console.log(mc.hasOwnProperty("hasOwnProperty")) // false
+        console.log(mc.__proto__.hasOwnProperty("hasOwnProperty")) // 原型里也没有
+
+        //原型对象也是 对象 , 原型对象里也有原型 --> 切原型中的 原型找 --》 【直到找到object 的原型】
+        //object对象 的原型 没有原型 
+        // 找不到 返回 undefined
+        console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty")) // true
+
+
+
     </script>
 
 </head>
