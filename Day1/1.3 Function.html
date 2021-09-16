@@ -40,11 +40,42 @@
         func2(-5);
 
 
+        // 注意1. 函数形参 不会检查 类型, 有可能会接收到 非法的参数
 
+        function sum(a,b)
+        {
+            console.log(a+b);
+        }
 
+        sum(1,2)
+        sum(1,"2")
+        sum(1,"2",123,123,123) // 也是可以的 传进去 不用
 
+        // 返回值
+        function sum(a,b) 
+        {
+            return a+b;
+        }
 
+        var res= sum(1,2)
+        console.log(res)
     
+
+        // 函数名可以当参数
+        function a(b)
+        {
+            b();
+        }
+
+        function b ()
+        {
+            console.log("Hi");
+        }
+
+        a(b);
+
+
+        
     </script>
 </head>
 <body>
