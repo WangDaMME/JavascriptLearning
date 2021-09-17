@@ -76,6 +76,26 @@
         //object对象 的原型 没有原型 
         // 找不到 返回 undefined
         console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty")) // true
+        
+
+        // toString 需要在class的原型修改
+        function Person(name, age, gender){  
+            this.name = name,
+            this.age  = age,
+            this.gender = gender
+        }
+
+        Person.prototype.toString = function(){
+            
+        return "Person's name : " + this.name + " age : " + this.age + " gender: " + this.age;
+        }
+
+        var p1 = new Person("a",1,"m");
+        var p2 = new Person("b",2,"f");
+
+        console.log(p1.toString())  // "Person's name : a age : 1 gender: 1"
+        console.log(p2.toString())  // "Person's name : b age : 2 gender: 2"
+       
 
 
 
