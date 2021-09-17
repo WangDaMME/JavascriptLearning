@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=//, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript">
+    
+    // 浏览器已经为我们提供了文档节点， 这个对象就是 window 属性 (ie. 全局对象) 可以在页面中 直接使用， 代表整个网页 : document
+    console.log(document); // "object HTMLDocument"
+
+    var btn = document.getElementById("bId1"); // object HTMLButtonElemet
+
+    console.log(btn.innerHTML)
+    btn.innerHTML = "改了"
+    console.log(btn.innerHTML)
+
+
+    
+    </script>
+</head>
+<body>
+    <button id="bId1"> this is a button</button>
+</body>
+</html>
