@@ -12,7 +12,11 @@
     console.log(arr[0]); //超界 -->undefined
 
     arr.hello = "123"; // 数组本身也是个对象 ， 这么写不报错，但没有意义
+    
+    var arr2 = [1,2,3];// 这种叫 使用字面量literal 来添加 数组
 
+    // 可以是任意数据类型
+    arr = ["hello",1, {name:"123"}, true, function(){}, [123]] //匿名函数  数组里面也可以放数组
 
 
 
