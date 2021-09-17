@@ -231,6 +231,75 @@
         obj2.sayName(); //"ccc",
 
 
+        // 使用工厂方法 创建对象
+        
+
+        function createPerson (name ,age , gender)
+        {
+            var obj = new Object();
+        obj.name = name,
+        obj.age = age,
+        obj.gender = gender,
+        obj.sayName = function(){
+            console.log(this.name);
+        }
+        
+        return obj
+        
+        }
+
+        var obj1 = createPerson("a",18,"m")
+        var obj2 = createPerson("b",19,"f")
+        var obj3 = createPerson("c",20,"m")
+
+        obj1.sayName();
+        obj2.sayName();
+        obj3.sayName();
+
+        // 6. 构造函数
+        // 使用工厂方法 创建的对象， 使用的构造函数 都是 Object, 所以创建的对象是 Object 这个类型， 导致我们无法区分出不同类型的对象
+
+        // 构造函数 - conventionally 首字母大写
+        // 普通函数 直接调用， 构造函数 需要用new 关键字 来调用
+
+        /* !!! 用this:
+            构造函数 将 对象设置为 函数中的this, 在构造函数中可以使用this 来 引用新建的对象
+
+        */
+
+        function Person(){
+
+        // name = "123" , // 不行， 这是往 全局里 加 name
+        // this 就是 指 新建的对象
+        this.name = "wdd" //！！！！ {this} ！！！！
+        }
+
+        var p = new Person(); // 构造方法用 new 调用
+
+        console.log(p.name) // 
+
+
+
+        // instanceof 检查instance 类型
+
+        function Person(){
+
+        // name = "123" , // 不行， 这是往 全局里 加 name
+
+        this.name = "wdd" //！！！！ {this} ！！！！
+        }
+
+        function Dog(){}
+
+        var d = new Dog();
+        var p = new Person(); // 构造方法用 new 调用
+
+        console.log(p instanceof Person) // true 
+        console.log(d instanceof Person) // false
+        
+        console.log(d instanceof Object) // true 对象祖宗
+        console.log(p instanceof Object) // true 对象祖宗
+
 
     </script>
 </head>
