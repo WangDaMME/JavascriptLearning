@@ -129,6 +129,20 @@
             console.log(obj[n]) ; //这里 obj.n 不行 是找 n 这个变量了 没有叫n 的
         }
 
+        // 作用域
+        console.log(window);
+
+        // 使用var 关键字生命的变量 会再所有的代码执行之前被声明 
+        // 不会报错的原因是 ： js 会先扫描变量 ，先声明xxx 这个var
+
+        console.log("xxx: " + xxx); // undefined 
+
+        var xxx = 123;
+        
+        // 函数： 使用函数声明创建的函数 也会被 声明提前
+        func111(); // 不会报错 因为声明提前
+
+        function func111() {};
 
 
 
