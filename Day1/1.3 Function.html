@@ -75,7 +75,63 @@
         a(b);
 
 
+        // 函数 作为返回值 返回
+        function  func1()
+        {
+            //在函数内部声明函数
         
+        function  func2()
+        {
+            alert("func2!")
+        }
+        
+        return func2 ; // 将 func2作为翻坠至 返回
+        }
+
+        a = func1();
+        console.log(a)
+        a();// 调用func2
+
+        // 或者写成
+        func1()();
+
+
+        //IIFE 立即执行函数
+        //1 无参
+        //IIFE: 只想调用一次， 再也没有用了
+
+        //（  function (){   }）: 用一个() 包住匿名函数
+        (function(){
+            console.log("This is an IIFE!")
+        })(); //后面调用
+
+        //2 有参
+
+        // 有参数, IIFE
+        (function(a,b){
+            
+            console.log("This is an IIFE!" + (a+b))
+        })(5,6); //后面调用 传参
+
+
+        // 枚举对象中的 属性 for ... in 语句
+        var obj ={
+            name: 'wd',
+            age : 18,
+            student:true,
+            gender : "m"
+        }
+
+        // 属性
+        for(var n in obj)
+        {
+            console.log(n)
+            console.log(obj[n]) ; //这里 obj.n 不行 是找 n 这个变量了 没有叫n 的
+        }
+
+
+
+
     </script>
 </head>
 <body>
