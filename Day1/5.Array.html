@@ -46,9 +46,48 @@
     console.log(arr.shift()) //4 
     console.log(arr.shift()) //5
 
+    // 数组的遍历
+    var arr = [1,2,3,4]
+    for (var i =0 ; i<arr.length;i++)
+    {
+        console.log(arr[i])
+    }
 
 
+    // forEach 方法
+    /*
+        支持 ie9以上浏览器
+        需要函数名 作为参数， 一般 传匿名函数
+        arr.forEach(func)  不是 arr.forEach( func() 调用了，相当于传函数返回值)
+        arr.forEach(function(){})
+        像这种 由我们创建 但不由我们调用的 叫回调函数
+    */
+    var arr = [1,2,3,4,5]
 
+    arr.forEach(function(){
+        console.log("hello")
+    })
+
+
+    // eg2. 每次执行是， 浏览器会将遍历到的元素 以实参形式 传递进来
+    //可以传参数  （3个参数）: {当前遍历的元素， 当前索引index}
+    var arr = [1,2,3,4,5]
+
+    arr.forEach(function(a){
+        console.log("a = " +a)
+    })
+
+    /*
+    可以传参数  （3个参数）: {当前遍历的元素， 当前索引index， 正在遍历的数组对象}  - {value, index, arr_obj}
+    每次执行是， 浏览器会将遍历到的元素 以实参形式 传递进来，可以定义形参来读取该内容
+    */
+    var arr = [1,2,3,4,5]
+
+    arr.forEach(function(a,b,c){
+        console.log("a = " +a) //"a = 5"
+        console.log("b = " +b) //"a = 5"
+        console.log("c = " +c) //"a = 5"
+    })
 
 
     </script>
