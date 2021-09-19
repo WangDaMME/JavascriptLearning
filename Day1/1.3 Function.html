@@ -301,6 +301,53 @@
         console.log(p instanceof Object) // true 对象祖宗
 
 
+        //===================================================//
+        // call & apply
+        function func1()
+        {
+            console.log(this);
+        console.log(this.name)
+        }
+
+        func1(); //window
+        // call & apply
+
+        var obj1 = {name:"aaa"}
+        var obj2 = {name:"bbb"}
+
+
+        func1.apply(obj1); //aaa
+        func1.call(obj2);  //bbb
+
+        // call 和 apply 调用方式不同
+        function func1(a,b)
+        {
+            console.log(a);
+        console.log(b)
+        }
+
+        func1(); //window
+        // call & apply
+
+        var obj1 = {name:"aaa"}
+        var obj2 = {name:"bbb"}
+
+
+        func1.apply(obj1,[2,3]); //数组形式
+        func1.call(obj2,2,3);  //obj 之后 以 实参传递
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </script>
 </head>
 <body>
