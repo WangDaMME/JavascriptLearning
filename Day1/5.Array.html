@@ -89,6 +89,105 @@
         console.log("c = " +c) //"a = 5"
     })
 
+    // Slice & Splice
+    // 从某个已有的数组返回 选定的元素
+    // 传递负值则从后往前计算,  也是 前包后不包， eg. -1 最后倒数第一个 不包括
+
+    //1.slice
+    var arr = [0,1,2,3,4,5]
+
+    console.log(arr.slice(0,2)) //前包后不包
+    console.log(arr.slice(1)) // 从 start以后 都要
+
+
+    // -1 代表倒数第一个， -2 表示倒数第二个 
+    // 传递负值则从后往前计算
+    // 传递负值则从后往前计算,  也是 前包后不包， eg. -1 最后倒数第一个 不包括
+    console.log(arr.slice(1,-1)) // 从 start以后 都要
+
+
+
+    //2. splice
+    //     会影响到 原数组， 会将指定元素从原数组中删除， 并将删除的元素返回
+    //     与slice 表示方式不一样
+    //    （start， count） 第二个表示 删除的数量
+    var arr = [0,1,2,3,4,5]
+
+    console.log(arr.splice(0,3)) //start， count
+    console.log(arr) //start， count
+
+
+    //替换
+    var arr = [0,1,2,3,4,5]
+
+    //eg. 替换2 位置
+    console.log(arr.splice(2,2,[8,9,10])) 
+    console.log(arr) //start， count
+
+
+    // arr.splice (1,0， elements)  不删 在中间加塞
+    var arr = [0,1,2,3,4,5]
+
+    //eg. 替换2 位置
+    console.log(arr.splice(1,0,[8,9,10])) 
+    console.log(arr) //start， count
+
+
+    // 3. concat函数
+    /*
+        接合并成一个数组，不会对原数组 产生影响
+        可以无限加 elements
+    */
+
+    var arr1 = [1,2,3]
+    var arr2 = [4,5,6]
+
+    console.log(arr1.concat(arr2))
+    console.log(arr1) // 1,2,3
+
+    console.log(arr1.concat(arr2,"aaa","bbb", true)) // 可以无限加elements
+
+
+    // 4. join
+    /*
+    将数组中所有元素 以 字符串方式 连接起来， 以string形式返回 ， 对原数组 不会产生任何影响
+    默认 以 “，”逗号连接， 也可以指定 eg arr.join(“hello”)
+
+    */
+    var arr1 = [1,2,3]
+
+    var res = arr1.join();
+    console.log(typeof res) // 默认以","形式
+    console.log(res)
+
+    //指定连接符
+    var res = arr1.join("@-@");
+    console.log(res)
+
+    var res = arr1.join("");
+    console.log(res)
+
+
+    //reverse: 会对原数组直接构成影响
+    console.log(arr1.reverse()) 
+    console.log(arr1) //对原数组 构成影响
+
+    // sort
+    var arr1 = [1,2,3,11]
+
+    arr1.sort()
+    console.log(arr1) //[1, 11, 2, 3]
+
+
+    //自定义comparator
+    var arr1 = [1,2,3,11]
+    arr1.sort(function(a,b){ //匿名函数
+        if(a==b) return 0;
+    return a<b? -1:1;
+    })
+
+    console.log(arr1) // 1, 2, 3,11
+
 
     </script>
 </head>
