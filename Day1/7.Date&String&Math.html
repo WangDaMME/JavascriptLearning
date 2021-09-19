@@ -35,7 +35,43 @@
         var time = Date.now();
         console.log(time) // 1480133720000 一串数字  1s =1000ms
 
+        //2. Math
 
+        // Math 不是构造函数 属于工具类
+
+        // 1. 常量
+        console.log(Math.PI)
+        console.log(Math.E)
+
+
+        //2. 方法
+        console.log(Math.abs(-1))
+        console.log(Math.ceil(-1.5))//向上取整 -1.5-->-1
+        console.log(Math.floor(-1.99))//向上取整 -1.5-->-2
+        console.log(Math.floor(1.99))//向上取整 1,99 ->1
+
+        console.log(Math.round(1.45))//四舍五入
+        console.log(Math.random())//0~1 之间随机数  0,1都不包括
+
+        console.log(Math.round(Math.random()*10))
+
+        //生成 1~10 随机数
+        console.log(Math.round(Math.random()*9+1))
+        //生成 2~10 随机数
+        console.log(Math.round(Math.random()*8+2))
+        //生成 3~10 随机数
+        console.log(Math.round(Math.random()*7+3))
+
+        console.log(Math.max(1,2,3,4))
+        console.log(Math.max([1,2,3,4])) //NaN
+        console.log(Math.min(1,2,3,4))
+
+        console.log(Math.sqrt(3)) // 1.732
+        
+        
+        
+        
+        
     </script>
 
 </head>
