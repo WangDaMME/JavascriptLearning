@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  type="text/javascript">
+        //1. Date
+
+        var d =new Date();
+
+        console.log(d)
+        console.log(d.toString())
+
+        // 指定日期
+        var d2 =new Date("11/25/2016 23:15:20");
+
+        console.log(d2)
+        console.log(d2.toString()) // "Fri Nov 25 2016 23:15:20 GMT-0500 (Eastern Standard Time)"
+        
+        var d =new Date();
+
+
+        // getDate
+        console.log((new Date()).getDate()) // 当前日期对象 是 几日
+        console.log(d2.getDay()) // 星期几  0： 表示周日    {0-6}
+        console.log(d2.getMonth()) // 月份  0：表示1 月  {0-11}
+
+        console.log(d2.getFullYear()) // 年份
+
+        console.log(d2.getTime()) // 1480133720000 一串数字  1s =1000ms
+
+        // 获取当前的时间戳 Date.now()
+        var time = Date.now();
+        console.log(time) // 1480133720000 一串数字  1s =1000ms
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
