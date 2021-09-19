@@ -336,6 +336,15 @@
         func1.apply(obj1,[2,3]); //数组形式
         func1.call(obj2,2,3);  //obj 之后 以 实参传递
         
+        //arguments
+
+        function func1()
+        {
+            console.log(arguments[0]); // 都是可以使用形参
+        console.log(arguments[1])
+        }
+
+        func1(1,"hello");
         
         
         
