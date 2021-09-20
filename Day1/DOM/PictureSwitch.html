@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            /* 默认样式 */
+        }
+
+        #outer{
+            width: 500px ;
+
+            margin: 50px auto;  
+            padding: 10px;
+            background-color: skyblue;
+            text-align: center;
+        }
+
+        
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            //点击按钮 切换图片
+
+            // 1. 先找到 按钮 绑定单机事件
+
+            var prevBtn = document.getElementById("prev");
+            var nextBtn = document.getElementById("next");
+
+
+            //2. 切换图片 就是 修改 src 属性
+
+            // 2.1 获取 img tagName
+
+            var img = document.getElementsByTagName("img")[0]; // 数组 size=1
+
+            var imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+
+            var index = 0 ;
+
+
+
+            prevBtn.onclick = function(){
+
+                index-- ;
+                // console.log(img.src)
+                if (index<0) index = imgArr.length - 1;
+
+                // 设置 image 路径value
+                img.src = imgArr[index];
+
+                 // 3. 设置提示文字 {每次点都需要重新设置}
+                var info = document.getElementById("info");
+
+                info.innerHTML = imgArr.length + " in total." + " Current is:  " + (index+1) ;
+            }
+
+            nextBtn.onclick = function(){
+                
+                index++ ;
+                // console.log(index)
+
+                if (index>imgArr.length-1) index = 0;
+
+                // 设置 image 路径value
+                img.src = imgArr[index];
+
+
+                 // 3. 设置提示文字 {每次点都需要重新设置}
+                var info = document.getElementById("info");
+
+                info.innerHTML = imgArr.length + " in total." + " Current is:  " + (index+1) ;
+            }
+
+            
+       
+
+        }
+
+    
+    </script>
+</head>
+<body>
+    <div id="outer">
+
+        <p id = "info"></p>
+        <img src = "img/1.jpg" alt="ice-cream"/>
+        <button id = "prev">Prev</button>
+        <button id = "next">Next</button>
+
+    </div>
+</body>
+</html>
