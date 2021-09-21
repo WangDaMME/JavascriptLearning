@@ -69,9 +69,44 @@
         console.log(Math.sqrt(3)) // 1.732
         
         
+
+        //3. ======== [字符串] ==========//
+        var str = "abc"
+        console.log(str[0]) // ”a“ 底层以字符串数组形式 
+        console.log(str.charAt(0)) // ”a“ 底层以字符串数组形式 
+        console.log(str.charCodeAt(0)) // unicode 编码
+
+
+        console.log(String.fromCharCode(97)) // "a"
         
+        // str.concat: 与 “+” 一样 对原字符串没有影响
+        // str.indexof() 检查字符串是否有 指定内容， 有 则返回 第一个 index 
+        // 没有 -1
+        // str.indexof( “h”, 1 ) : start 开始查找的位置
+        // str.lastIndexof() : 与indexof 从前往后找
+
+        console.log(str.indexOf("b"))
+
+        str = "abcbb"
+
+        console.log(str.indexOf("b",2))
+        console.log(str.indexOf("b"))
+
+
+        console.log(str.substring(0,2)) // 前包后不包
+
+
+        console.log(str.substring(2,0)) // ”ab" 如果第二个 < 第一个索引 会自动调整参数
+
+        str = "ab,asdas,asdas,eq,qwe,cbb"
+        console.log(str.split(",")) // 根据 “，” 拆分成数组       
+        console.log(str.split("")) 
+
         
-        
+        console.log(str.toUpperCase()) 
+
+
+
     </script>
 
 </head>
