@@ -6,7 +6,14 @@
 		<link rel="stylesheet" type="text/css" href="style/css.css" />
 		<script type="text/javascript">
 		
-		
+			// 封装成全局函数
+			function myClick(idStr, fun)
+			{
+				var btn = document.getElementById(idStr);
+				btn.onclick = fun; // 声明 回调
+			}
+
+
 			window.onload = function()  // 等页面全加载好，执行js功能
 			{
 				// 1. 查找#bj 节点
@@ -97,6 +104,33 @@
 
 
 
+				//==================================父节点 与 兄弟===============================//
+
+				//7.返回#bj的父节点
+
+				myClick("btn07", function(){
+					//匿名函数
+
+					var bj = document.getElementById("bj"); //li
+					alert(bj.parentNode) ; // 父节点 UListElement
+					alert(bj.parentNode.innerHTML) ; // 父节点 UListElement
+					alert(bj.parentNode.innerText) ; //自动去除 html 标签
+
+				})
+
+
+				//7.返回#android的前一个兄弟节点
+
+				myClick("btn08", function(){
+					//匿名函数
+
+					var android = document.getElementById("android"); //li
+					alert(android.previousSibling) ; // 父节点 UListElement
+					alert(android.previousSibling.innerHTML) ; // 也可能 获取
+
+				})
+
+
 
 			};
 
@@ -113,9 +147,34 @@
 				//返回#bj的父节点
 				//返回#android的前一个兄弟节点
 				//读取#username的value属性值
+				myClick("btn09", function(){
+					//匿名函数
+
+					var username = document.getElementById("username"); //li
+					alert(username.value) ;
+
+				})
+
 				//设置#username的value属性值
+				myClick("btn10", function(){
+					//匿名函数
+
+					var username = document.getElementById("username"); //li
+					username.value = "Hello everyone ~~~"
+
+				})
 				//返回#bj的文本值
-				
+				myClick("btn11", function(){
+					//匿名函数
+
+					var bj = document.getElementById("bj"); //li
+					alert(bj.innerHTML)
+					alert(bj.innerText)
+
+					//获取北京的问呢节点
+					var firstchild = bj.firstChild;
+					alert(firstchild.value) ; // 就是文本内容
+				})
 		
 			
 		
