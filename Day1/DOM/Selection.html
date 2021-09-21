@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function () {
+          //1.#checkedAllBtn
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                // 拿出四个多选框 都有items
+
+                var items = document.getElementsByName("items");
+
+                // 改成选中状态
+                // for(var i =0 ; i<items.length;i++)
+                // {
+                //     //找html element  checkedbox 对象的属性
+                //     items[i].checked = true;
+                // }
+                
+                items.forEach(function(element){
+                    element.checked = true;
+                })
+            }
+
+          //2.#checkedNoBtn 全不选
+          var checkedNoBtn = document.getElementById("checkedNoBtn");
+          checkedNoBtn.onclick = function(){
+                // 拿出四个多选框 都有items
+
+                var items = document.getElementsByName("items");
+
+                items.forEach(function(element){
+                    element.checked = false;
+                })
+            }
+
+          //3.#checkedRevBtn 反选
+          var checkedRevBtn = document.getElementById("checkedRevBtn");
+          checkedRevBtn.onclick = function(){
+                // 拿出四个多选框 都有items
+
+                var items = document.getElementsByName("items");
+
+                items.forEach(function(element){
+                    
+                    element.checked = !element.checked; // 取反
+                })
+            }
+
+          
+          //4.#sendBtn
+          var checkesendBtn = document.getElementById("checkesendBtn");
+          checkesendBtn.onclick = function(){
+                // 拿出四个多选框 都有items
+
+                var items = document.getElementsByName("items");
+
+                items.forEach(function(element){
+                    
+                   if(element.checked){
+                    alert(element.value) //选中了输出
+                   }
+                })
+            }
+          //5.#checkedAllBox 全选 全不选 的 多选框
+          var checkAllBox = document.getElementById("checkAllBox");
+
+          checkAllBox.onclick = function(){
+            var items = document.getElementsByName("items");
+
+            console.log(this === checkAllBox)
+            //在事件响应函数中， 事件是给谁绑定的， this就是谁
+
+            for(var i = 0; i<items.length;i++)
+            {
+                items[i].checked = checkAllBox.checked;   
+            }
+
+            // 点击小的时候 判断
+            // 如果4个小的全选中 则上面也应自动选上
+
+            // 为4个多选框 都绑定单机响应函数
+            for(var i = 0 ; i<items.length; i++)
+            {
+                // 默认4个为选中
+                checkAllBox.checked = true;
+                items[i].onclick = function()
+                {
+                    // 一个没选中
+                    for(var j = 0; j<items.length;j++)
+                    {
+                        if(!items[j].checked)
+                        {
+                            checkAllBox.checked = false;
+                        }
+                    }
+                }
+            }
+          }
+          //6.#items
+        };
+      </script>
+    </head>
+    <body>
+      <form method="post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkAllBox" />全选/全不选
+        <br />
+        <input type="checkbox" name="items" value="足球" />足球 <input type="checkbox" name="items" value="篮球" />篮球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+        <br />
+        <input type="button" id="checkedAllBtn" value="全选" />足球
+        <input type="button" id="checkedNoBtn" value="全不选" />足球
+        <input type="button" id="checkedRevBtn" value="反选" />足球
+        <input type="button" id="checkesendBtn" value="提交" />足球
+      </form>
+    </body>
+</head>
+<body>
+    
+</body>
+</html>
