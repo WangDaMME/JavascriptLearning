@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type = "text/javascript">
+    
+    //1. document 中的属性
+
+    // 获取body
+    // document 保存body 属性可以  access  html 里 的body
+    var body = document.body ; // 等价于 document.getElementsByTagName("body")[0]
+    
+    // document Element 根标签
+    var body = document.documentElement ; 
+    
+    // .all: 页面中所有的元素
+    var all = document.all;
+    console.log(typeof all) // undefined
+    console.log(all.length)
+    console.log(all) // undefined
+
+    // all 等价于  document.getElementsByTagName(“*”)
+    
+
+    //2. 根据 元素的class属性值 查询一组 元素节点对象
+    var box1 = document.getElementsByClassName("box1");
+
+    console.log(box1.length)
+
+    //3. document.qurySelector()根据css 选择器  来选取元素
+    // 该方法 总会返回唯一的一个元素。如果满足条件的元素有多个 只会返回第一个
+    // 获取box1 中的 div
+
+    var div1 = document.querySelector(".box1 div")
+    console.log(div1.innerHTML)
+
+
+
+    //4. querySelectorAll 返回所有css满足
+    // document.querySelectorAll(): 返回所有 封装到同1数组里, 只有一个 也会返回数组
+
+    var divs = document.querySelectorAll(".box1")
+    console.log(divs.length)
+
+
+    </script>
+</head>
+<body>
+    <div class= "box1"> 
+        <div>我是box1中的div</div>
+    </div>    
+    <div class= "box1"> </div>    
+    <div class= "box1"> </div>    
+
+</body>
+</html>
