@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    
+        // console.log(window);
+        // console.log(navigator); console.log(window.navigator);
+        // // location, history, screen
+
+        //  alert(navigator.appName) // 由于历史原因, Navigator 对象中大部分属性 都不能帮我们识别浏览器了
+
+        // 一般只会用userAgetn
+        // alert(navigator.userAgent) // 不同浏览器 有不同的 userAgent
+
+        // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36
+        // mozilla 基金会 5.0, 系统信息 windows nt 10.0, 64 系统，  渲染引擎khtml 类gecko渲染引擎 (css) 
+
+        // 正则表达式 判断有没有chrome
+
+        if(/chrome/i.test(navigator.userAgent))//i： 忽略大小写
+        {
+            alert("是 chrome")
+        }
+        else{
+            alert("是 其他")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
