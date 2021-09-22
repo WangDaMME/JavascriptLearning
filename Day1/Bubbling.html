@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type = "text/css">
+        #box1{
+            height: 200px;
+            width: 200px;
+            background-color: springgreen;
+
+        }
+        
+        #s1{
+            background-color: yellow;
+
+        } 
+    </style>
+    <script type = "text/javascript">
+
+        window.onload = function(){
+
+            // 关系： span --> div --> body
+            var box1 = document.getElementById("box1")
+            var span1 = document.getElementById("s1")
+            // var body = document.body
+
+            span1.onclick = function(){
+                alert("我是span1")
+            }
+            box1.onclick = function(event){
+
+                event.cancelBubble = true; 
+                alert("我是box1")
+            }
+            
+            /// html body
+            document.body.onclick = function(){
+                alert("我是html body")
+            }
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    <div id = "box1">
+        我是box1
+        <span id="s1"> 我是span</span>
+    </div>
+    
+</body>
+</html>
