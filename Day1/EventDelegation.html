@@ -1,0 +1,79 @@
+<!-- 事件的委派 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    
+        window.onload = function(){
+
+            var u1 = document.getElementById("u1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;' class = 'link''>我是新添加的</a>"
+                
+                u1.appendChild(li)
+            }
+
+            /**
+             * 我们希望只绑定一次事件， 即可 应用多个元素--》 事件委派
+             * 祖先元素， 这样当后代元素上的事件触发时，会一直 冒泡 到 祖先元素， 从而通过祖先元素的响应函数 来处理事
+             * */
+            
+
+            // 事件委派到公共祖先
+            u1.onclick = function(event){
+
+                //【！！！ 检查事件调用对象】
+                //      现在 点击a 的父亲 li 也能触发该事件
+
+                // console.log(this) ;//!!! this 可不是事件触发 对象， 是事件绑定 的对象
+
+                // 用 事件对象 event 中target 属性： event.target
+
+                event  = event || window.event; // ie8 兼容性
+
+                console.log(event.target)
+
+                if(event.target.className == "link") ///隐患， class 不能写多的  如1 class  ="link hello"
+                {
+                    alert("我是ul的单机响应函数")
+                }
+
+
+
+                // alert("我是ul的单机响应函数")
+            }    
+
+
+            // 为所有a 设置单机响应函数
+            // var allA  = document.getElementsByTagName("a");
+
+            // for(var i =0 ; i<allA.length;i++)
+            // {
+            //     allA[0].onclick = function(){
+            //         alert("我是a的单机响应函数！！！")
+            //     }
+            // }
+
+        }
+    
+    </script>
+
+</head>
+<body>
+    <button id = "btn01">添加超链接</button>
+    <ul id = "u1" style="background-color: turquoise;">
+        <li><a href="javascript:;" class = "link hello">Link 1</a></li>
+        <li><a href="javascript:;" class = "link">Link 2</a></li>
+        <li><a href="javascript:;" class = "link">Link 3</a></li>
+
+
+    </ul>
+</body>
+</html>
