@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            // 对象.事件 = 函数. eg..onclick = function() 同时绑定两个 后面的 能给前一个 的覆盖了
+
+            /* addEventListener: 监视器 也可为元素绑定响应函数
+                  // ！按绑定顺序 执行
+                    参数:
+                        1. 事件的字符串，不要on
+                        2. 回调函数， 当 事件触发时, 哪个函数被执行
+                        3. boolean: 是否在捕获阶段触发事件， 一般 false
+
+                        btn01. addEventListener("click", function(){匿名}, false)
+
+
+
+            */
+
+            //bnt01 绑定两个事件
+
+            var btn01 = document.getElementById("btn01");
+
+            btn01.addEventListener("click", function(){
+
+                alert("Alert 1 !");
+
+            }, false);// 匿名函数 ， onclick 不要on
+        
+        
+            btn01.addEventListener("click", function(){
+
+                alert("Alert 2 !");
+
+            }, false);// 匿名函数 ， onclick 不要on
+                        
+        
+
+            //ie8中， 使用attachEvent 来绑定事件
+
+            // 处理兼容性
+            // 用一个参数来绑定响应函数
+
+            // 统一this : 由调用方式决定
+            function bind(obj , eventStr, callback) // 默认不要on
+            {
+                if(obj.addEventListener) // 有就是大部分浏览器
+                {
+                    obj.addEventListener(eventStr,callback, false)
+                }
+                else{
+                    //ie8一下
+                    // callback.call （obj） : 修改this 不过callback 是浏览器自己调的 不知道他是啥model
+                    obj.attachEvent("on"+eventStr, function(){
+                        // 匿名函数
+                        //再匿名函数 调用回调函数
+                        callback().call(obj); //指定this
+                    })
+                }
+
+            }
+
+
+
+
+        }
+
+        
+    </script>
+</head>
+<body>
+    <button id = "btn01">Click me</button>
+</body>
+</html>
