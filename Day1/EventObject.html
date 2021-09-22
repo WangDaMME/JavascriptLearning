@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    
+        #areaDiv
+        {
+            width: 400px;
+            height: 200px;
+            border-color: black;
+            border-style: solid;
+        }
+
+        #showMsg
+        {
+            width: 200px;
+            height: 200px;
+            border-color: blue;
+            border-style: solid;
+
+        }
+    
+    </style>
+    <script type = "text/javascript">
+    
+        window.onload = function(){
+            
+            // 当鼠标在areaDiv 移动时， 在showMsg中显示 鼠标坐标
+
+
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+
+            // onMouseMOve 事件
+
+            // 给areaDiv绑定 探测
+            areaDiv.onmousemove = function(event){
+                // event (object 类型 eg, MouseEvent)
+                // alert(event)
+
+                //clientX 可以获取鼠标指针的水平坐标， clientY 可以获取鼠标指针的垂直坐标
+
+                var x = event.clientX;
+                var y = event.clientY;
+
+                showMsg.innerHTML = "x= " +x +" , y= " +y;
+
+                // ie8.  浏览器不会传递事件对象, 将事件对象作为window 对象的属性保存的
+                // window.event.clientX
+            }
+
+        }
+    
+    
+    </script>
+</head>
+<body>
+
+    <div id = "areaDiv"></div>
+    <br />
+    <div id = "showMsg"></div>
+
+</body>
+</html>
