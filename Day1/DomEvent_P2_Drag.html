@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position:  absolute;
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position:  absolute;
+            left: 200px;
+            top: 200px;
+
+        }
+    
+    </style>
+
+    <script type= "text/javascript">
+    
+        window.onload = function(){
+
+           /*
+           * 拖拽流程
+                1. 当鼠标按下被拖拽元素时，开始拖拽       -- onmousedown
+                2. 当鼠标移动时 被拖拽元素跟随鼠标移动    -- onmousemove
+                3. 当鼠标松开时， 被拖拽元素固定的位置    -- onmouseup
+           */
+
+            var box1 = document.getElementById("box1")
+
+            box1.onmousedown = function(){ // 为box1绑定鼠标按下事件
+                
+                //内嵌 : 跟随： 点的时候开始
+
+                //为 document 绑定 onmousemove 事件 因为全屏位置， 以取练习讲过
+                // 根据鼠标坐标 修改 box1坐标
+                document.onmousemove = function(event)
+                {
+                    event =event || window.event ; //兼容性
+
+                    var left = event.clientX;
+                    var top = event.clientY;
+
+                    //修改box1的位置，要开启absolute 作为reference
+                    box1.style.left = left + "px";
+                    box1.style.top = top + "px";
+
+                }   
+
+                //当鼠标松开时候， 固定在当前位置
+                //box1.onmouseup = function(){
+                // 应该给document 绑定
+                document.onmouseup = function(){
+                    document.onmousemove = null ; //取消事件
+
+                    document.onmouseup =null; //这个取消 相当于 一次性事件
+                }
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <div id = "box1"></div>
+
+    <div id = "box2"></div>
+
+</body>
+</html>
