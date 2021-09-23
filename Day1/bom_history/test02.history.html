@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // alert(history.length) // 当次访问了几个页面
+
+        window.onload = function(){
+
+            var btn = document.getElementById("btn")
+
+            btn.onclick = function(){
+
+                // back 回退到上一个界面
+                // history.back();
+
+                // history.forward(); // 下一个页面
+
+                // go 用来调整
+                history.go(1) ; //相当于向前
+                history.go(-1) ; //相当于向后
+
+            }
+        }
+        
+
+    
+    </script>
+   
+</head>
+<body>
+    <button id= "btn">Click me</button>
+    <h1>history</h1>
+</body>
+</html>
