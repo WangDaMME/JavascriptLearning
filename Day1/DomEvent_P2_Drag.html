@@ -38,8 +38,20 @@
 
             var box1 = document.getElementById("box1")
 
-            box1.onmousedown = function(){ // 为box1绑定鼠标按下事件
+            box1.onmousedown = function(event){ // 为box1绑定鼠标按下事件
                 
+
+                // 解决鼠标偏移问题
+                event = event || window.event;
+
+                // div 的偏移量 鼠标.clinetX - 元素.offsetLeft
+                // div 的偏移量 鼠标.clinetY - 元素.offsetTop
+
+                var offsetLeft = event.clientX - box1.offsetLeft
+                var offsetTop =  event.clientY - box1.offsetTop
+
+
+
                 //内嵌 : 跟随： 点的时候开始
 
                 //为 document 绑定 onmousemove 事件 因为全屏位置， 以取练习讲过
@@ -48,8 +60,8 @@
                 {
                     event =event || window.event ; //兼容性
 
-                    var left = event.clientX;
-                    var top = event.clientY;
+                    var left = event.clientX - offsetLeft;
+                    var top = event.clientY - offsetTop;
 
                     //修改box1的位置，要开启absolute 作为reference
                     box1.style.left = left + "px";
@@ -66,6 +78,9 @@
                     document.onmouseup =null; //这个取消 相当于 一次性事件
                 }
             }
+
+
+            //2. 解决相对位置拖拽问题 鼠标位置 和 左上角相对位置保持不变
         }
     
     </script>
