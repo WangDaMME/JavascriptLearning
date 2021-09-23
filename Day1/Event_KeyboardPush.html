@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    
+        window.onload = function(){
+
+            // onkeyup, onkeydown
+            //键盘事件 一般会绑定给 一些可以获取焦点(光标)的对象， 或者是 document
+
+            // document.onkeydown = function(event){
+            //     //可以通过 event.keyCode 获取 按键 a= 67
+
+            //     // alert( event.keyCode )
+
+            //     //判断 y 和control 是否同时被按下
+            //     // XXX 错误 --- if(event.keyCode ===89 && event.keyCode ===17 ) alert("true") 哪能同时满足
+
+            //     if(event.keyCode===89 && event.ctrlKey)
+            //     {
+            //         alert("y 和control 是否同时被按下")
+            //     }
+
+            // }
+
+
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event){
+
+                // 使文本框 只能输入数字(48-57)
+                event = event || window.event;
+
+                if(event.keyCode>=48 && event.keyCode<=57){
+
+                    return false; //取消默认行为 不会显示
+                }
+
+                
+                // return false; //取消默认行为 啥也输入不进去了
+            }
+            
+        }
+    
+    
+    </script>
+</head>
+<body>
+    <input type="text"/>
+</body>
+</html>
