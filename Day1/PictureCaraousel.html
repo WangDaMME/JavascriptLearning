@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        window.onload= function(){
+
+            // 走马灯 使图片可以自动切换
+
+            var img = document.getElementById("img1")
+            var imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+
+            var index  = 0;
+           
+
+
+            // 为button绑定单击响应函数
+            var btn = document.getElementById("btn");
+            var timer ; //定义变量 用来保存定时器
+
+
+            //【缺陷】 连点: 会开启很多定时器 1000ms slee --> eg.10 个 闪的速度 1000/10 = 100ms
+
+            // 【解决办法】在开启之前将上一个定时器关闭
+
+            // 点击开始 才开启定时器
+            btn.onclick = function(){
+
+
+                clearInterval(timer); // 【解决办法】在开启之前将//当前元素的上一个定时器关闭
+
+
+                 //开启定时器 修改 当前图片索引
+                 timer = window.setInterval(function(){
+                    index++;
+                    // if(index >=imgArr.length)
+                    // {
+                    //     index = 0;
+                    // }
+                    index = index % imgArr.length;
+
+                    img.src = imgArr[index];
+
+                }, 1000)
+            }
+
+            //结束
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                //停止图片自动切换
+                //console.log(timer)
+                clearInterval(timer);
+            }
+        }
+
+
+      
+
+    
+    </script>
+
+</head>
+<body>
+
+    <img id = "img1" src="img/1.jpg"/>
+
+    <button id="btn">start</button>
+    <button id="btn02">end</button>
+
+</body>
+</html>
