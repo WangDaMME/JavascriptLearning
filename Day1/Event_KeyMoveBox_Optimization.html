@@ -1,0 +1,89 @@
+
+<!-- 匀速行进 ： 通过定时器解决卡顿问题 -->
+
+<!-- 优化： 第一次和第二次 之间卡顿 问题  -->
+
+<!-- 问题是 onkeydown 即控制速度 又控制方向 ： 开启定时器 控制div移动 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+
+    <script type="text/javascript">
+    
+    window.onload = function(){
+
+        //开启定时器 控制div移动
+
+        var speed  =10;
+         //创建变量表示方向, 通过修改dir 来 修改方向
+        var dir = 0 ; 
+        
+        window.setInterval(function(){
+
+            // switch 速度语句
+     
+   
+
+
+
+
+            switch(dir)
+            {
+
+                case 37:
+                    box1.style.left = box1.offsetLeft - speed + "px";
+                    break;
+                case 39:
+                    box1.style.left = box1.offsetLeft + speed + "px";
+                    break;
+                case 38:
+                    box1.style.top = box1.offsetTop- speed + "px";
+                    break;
+                case 40:
+                    box1.style.top = box1.offsetTop+ speed + "px";
+                    break;
+
+            }
+        },100)
+
+        var box1 = document.getElementById("box1");
+
+        document.onkeydown = function(event)
+        {
+            event = event || window.event;
+
+            //使dir =event.keyCode 改变方向
+            dir = event.keyCode
+
+          
+        }
+
+        ///当按键松开时候 不再移动
+        document.onkeyup = function(){
+            dir = 0; // 设置为默认值
+        }
+
+    }
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>
