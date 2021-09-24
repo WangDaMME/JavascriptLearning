@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        
+        /**
+         * 字符串 与正则相关方法
+         *      search, match , replace, split
+         * */
+         
+         //1.split 拆分
+
+         var str = "1a2b3c4d5e6f7g"
+
+         var res = str.split(/[A-z]/);
+         console.log(res) // 不要字母  ['1', '2', '3', '4', '5', '6', '7', '']
+ 
+
+
+         //2.search 搜索是否含有指定内容 
+         //   类似indexOf return -1, first_time
+        
+         str = "hello abc hello aec afc"
+
+         res = str.search(/a[bef]c/);
+
+         console.log(res) // 6: first time
+
+
+         //3. match 
+         //  gi 即全局 又忽略大小写 -- 保存到数组里
+         str = "1a2b3c4d5e6f7g8A9D"
+         res = str.match(/[a-z]/gi);
+         console.log(res) 
+         console.log(res[4]) 
+         console.log(res.length) // 数组形式
+        
+
+         //4.replace  替换 指定内容 （reexp, newStr）
+         str = "1a2b3c4d5e6f7g8A9D"
+
+         res = str.replace(/[a-z]/gi,"@");
+         console.log(res) 
+         str = "1a2b3c4d5e6f7g8A9D"
+         res = str.replace(/[a-z]/gi,""); //相当于删除
+         console.log(res) 
+
+    </script>
+</head>
+<body>
+</body>
+</html>
