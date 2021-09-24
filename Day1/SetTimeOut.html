@@ -1,0 +1,28 @@
+<!-- 延时调用 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type = "text/javascript">
+    
+//     setTimeOut -- 延时调用 ： 一个函数不马上执行 二十隔一段时间以后 再执行， 而且只执行1次
+//      定时调用 会 调用多次
+        var num = 0
+        var timer = setTimeout(function(){
+            console.log(num++)
+        },3000)
+
+        clearTimeout(timer)
+    
+    </script>
+</head>
+<body>
+    
+
+
+</body>
+</html>
