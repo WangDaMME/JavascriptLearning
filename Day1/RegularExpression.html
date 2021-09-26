@@ -134,60 +134,60 @@
 
 
         var reg = /./
-//.: 表示任意字符
-console.log(reg.test("b")) // true
+        //.: 表示任意字符
+        console.log(reg.test("b")) // true
 
-//正则表达式： 表示\作为转义字符
+        //正则表达式： 表示\作为转义字符
 
-reg = /\./
-console.log(reg.test("b")) // false
+        reg = /\./
+        console.log(reg.test("b")) // false
 
-/**
-\w： 任意字母数字 下划线
-\W： 除了(任意字母数字 下划线)
-\d: 任意数字 [0-9]
-\D: 除了数字 ^[0-9]
-\s: 空格
-\S: 除了空格
-\b: 单词边界 就是 独立的单词
-\B： 非单词边界
+        /**
+        \w： 任意字母数字 下划线
+        \W： 除了(任意字母数字 下划线)
+        \d: 任意数字 [0-9]
+        \D: 除了数字 ^[0-9]
+        \s: 空格
+        \S: 除了空格
+        \b: 单词边界 就是 独立的单词
+        \B： 非单词边界
 
-**/
+        **/
 
-reg = /\D/
-console.log(reg.test("!@!#@!"))
+        reg = /\D/
+        console.log(reg.test("!@!#@!"))
 
-reg = /\d/
-console.log(reg.test("!@!#@!"))
-
-
-//  /\bchild\b/ : child 为独立单词 不能 有类似children这种
-
-reg = /\bchild\b/;
-
-console.log(reg.test("hello children")) // false
-console.log(reg.test("hello child ren")) // true 独立
+        reg = /\d/
+        console.log(reg.test("!@!#@!"))
 
 
-// 接受用户的输入
+        //  /\bchild\b/ : child 为独立单词 不能 有类似children这种
 
-/* var str = prompt("请输入你的用户名： ")console.log(str)  //!有空格的 用户名  自动去除
- */
-var str = "     he    llo    "
-// 去除空格就是 替换空格   
-var str = str.replace(/\s/g, "") // 全局的空格
-console.log(str)
+        reg = /\bchild\b/;
 
-// !!! 中间的空格 也被去了
-// 去除开头的空格
-str = str.replace(/^\s*/, "") ;// * ：开头的1个 或多个空格 ^开头
+        console.log(reg.test("hello children")) // false
+        console.log(reg.test("hello child ren")) // true 独立
 
-// 去结尾的空格
-str = str.replace(/\s*$/, "") ;// $ ：去结尾的空格
 
-// 合并
-var str = "     he    llo    "
-str  = str.replace(/^\s* | \s*$/g) // 或者 g: 全局匹配， 否则不管了
+        // 接受用户的输入
+
+        /* var str = prompt("请输入你的用户名： ")console.log(str)  //!有空格的 用户名  自动去除
+         */
+        var str = "     he    llo    "
+        // 去除空格就是 替换空格   
+        var str = str.replace(/\s/g, "") // 全局的空格
+        console.log(str)
+
+        // !!! 中间的空格 也被去了
+        // 去除开头的空格
+        str = str.replace(/^\s*/, "") ;// * ：开头的1个 或多个空格 ^开头
+
+        // 去结尾的空格
+        str = str.replace(/\s*$/, "") ;// $ ：去结尾的空格
+
+        // 合并
+        var str = "     he    llo    "
+        str  = str.replace(/^\s* | \s*$/g) // 或者 g: 全局匹配， 否则不管了
 
     </script>
 
