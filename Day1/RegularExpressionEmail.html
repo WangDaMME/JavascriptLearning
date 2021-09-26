@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+         * 任意字母数字 or下划线 . 任意字母数字 or下划线 @ 任意字母数字 . 任意字母 2-5位置 .任意字母 2-5位置；   .com 或 .cn
+         * 
+         * \w{3, } 3位以上   (\.\w+)* 转义. \w 可有可无  @ [A-z0-9] +   (\.  [A-z]{2,5}) {1,2} 整体出现 1~2次
+         * */ 
+
+         var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/; // 以这个开头
+
+         var email = "abc@abc.com" 
+
+         console.log(emailReg.test(email))
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
